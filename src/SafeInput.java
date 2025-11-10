@@ -54,18 +54,18 @@ public class SafeInput {
         } while (!done);
         return 0;
     }
-    public static int getRangedInt(Scanner pipe, String prompt, int low, int high) {
+    public static int getRangedInt(Scanner pipe, String prompt, String errorMessage, int low, int high) {
         boolean done = false;
         int userInt = 0;
         do {
-            System.out.print("\n" + prompt + ": ");
+            System.out.print(prompt + " ");
             if (pipe.hasNextInt()) {
                 userInt = pipe.nextInt();
                 if(userInt >= low && userInt <= high) {
                     done = true;
                 }
                 else {
-                    System.out.println("That integer is not between " + low + " and " + high + " inclusive.");
+                    System.out.println(errorMessage);
                 }
 
             }
