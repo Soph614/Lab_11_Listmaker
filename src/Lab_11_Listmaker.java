@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 
 public class Lab_11_Listmaker {
-    ArrayList<String> list = new ArrayList<>();
     public static void main(String[] args) {
         Scanner pipe = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
         boolean surelyDone = false;
         do {
             String menuChoice = SafeInput.getRegExString(pipe, "------------- MENU --------------\nA – Add an item to the list\nD – Delete an item from the list\nI – Insert an item into the list\nP – Print (i.e. display) the list\nQ – Quit the program\n---------------------------------\nChoose what you would like to do:", "[AaDdIiPpQq]");
             if (menuChoice.equalsIgnoreCase("A")) {
-                String whatToAdd = addItem(pipe, "Enter what you would like to add to the list: ");
-                list.add(whatToAdd);
             } else if (menuChoice.equalsIgnoreCase("D")) {
                 Integer offSize = list.size();
                 Integer realSize = offSize - 1;
@@ -39,12 +37,5 @@ public class Lab_11_Listmaker {
             System.out.println("------------");
         } while (!surelyDone);
 
-    }
-
-    // METHODS
-    private static String addItem(Scanner pipe, String prompt) {
-        String whatToAdd = addItem(pipe, "Enter what you would like to add to the list: ");
-        list.add(whatToAdd);
-        return pipe.nextLine();
     }
 }

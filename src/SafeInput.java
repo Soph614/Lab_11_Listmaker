@@ -175,7 +175,7 @@ public class SafeInput {
         boolean gotCorrectValue = false;
         // pipe.nextLine();
         do {
-            System.out.print("\n" + prompt + " ");
+            System.out.print(prompt + " ");
             userNumber = pipe.nextLine();
             if(userNumber.matches(regEx)) {
                 gotCorrectValue = true;
