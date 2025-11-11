@@ -17,7 +17,7 @@ public class Lab_11_Listmaker {
                     break;
                 case "D":
                 case "d":
-                    deleteFromList(pipe);
+                    deleteItem(pipe);
                     break;
                 case "I":
                 case "i":
@@ -41,24 +41,32 @@ public class Lab_11_Listmaker {
         list.add(pipe.nextLine());
     }
 
-    private static void deleteFromList(Scanner pipe) {
+    private static void deleteItem(Scanner pipe) {
         Integer offSize = list.size();
         Integer realSize = offSize - 1;
-        if(realSize == -1) {
+        if(list.isEmpty()) {
             System.out.println("You can't remove anything because there is nothing in your list!");
         }
         else {
             int userInt = SafeInput.getRangedInt(pipe, "Type in the location of the item you want removed [0-" + realSize + "]. Location", "There is no item at that location.", 0, realSize);
             list.remove(userInt);
+            pipe.nextLine();
         }
     }
 
     private static void displayList() {
-        System.out.println("---- LIST ----");
-        for (String l : list) {
-            System.out.println(l);
+        int num = -1;
+        if(list.isEmpty()) {
+            System.out.println("Your list is empty!");
         }
-        System.out.println("--------------");
+        else {
+            System.out.println("---- LIST ----");
+            for(String l : list) {
+                num = num + 1;
+                System.out.println(num + " " + l);
+            }
+            System.out.println("--------------");
+        }
     }
 
     private static void displayMenu() {
@@ -77,5 +85,13 @@ public class Lab_11_Listmaker {
         String toBeAdded = pipe.nextLine();
         int userInt = SafeInput.getRangedInt(pipe, "Where would you like to add '" + toBeAdded + "'? Location", "There is no item at that location.", 0, currentSizeOfList);
         list.add(userInt, toBeAdded);
+    }
+
+    private static void listWithLocation() {
+        int num = -1;
+        for(String l : list) {
+            num = num + 1;
+            System.out.println(num + " " + l);
+        }
     }
 }
