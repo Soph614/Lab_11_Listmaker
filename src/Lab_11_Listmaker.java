@@ -29,7 +29,7 @@ public class Lab_11_Listmaker {
                     break;
                 case "Q":
                 case "q":
-                    surelyDone = SafeInput.getYNConfirm(pipe, "Are you sure? ");
+                    surelyDone = SafeInput.getYNConfirm(pipe, "Quitting the program will automatically delete your list. Are you sure you want to quit? ");
                     break;
             }
         }while(!surelyDone);
@@ -85,6 +85,7 @@ public class Lab_11_Listmaker {
         String toBeAdded = pipe.nextLine();
         int userInt = SafeInput.getRangedInt(pipe, "Where would you like to add '" + toBeAdded + "'? Location", "There is no item at that location.", 0, currentSizeOfList);
         list.add(userInt, toBeAdded);
+        pipe.nextLine();
     }
 
     private static void listWithLocation() {
